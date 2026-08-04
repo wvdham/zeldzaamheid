@@ -572,7 +572,20 @@ flowchart TD
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
   const donker = matchMedia('(prefers-color-scheme: dark)').matches
     || document.documentElement.dataset.theme === 'dark';
-  mermaid.initialize({ startOnLoad: true, theme: donker ? 'dark' : 'neutral' });
+  mermaid.initialize({ startOnLoad: false, theme: donker ? 'dark' : 'neutral' });
+  await mermaid.run({ querySelector: '.mermaid' });
+  // mermaid injecteert eigen id-stijlen die display:inline forceren; hier hardzetten
+  document.querySelectorAll('.mermaid svg').forEach(svg => {
+    const vb = (svg.getAttribute('viewBox') || '').split(/\s+/).map(Number);
+    svg.style.setProperty('display', 'block', 'important');
+    svg.style.setProperty('width', '100%', 'important');
+    svg.style.setProperty('height', 'auto', 'important');
+    svg.style.setProperty('max-width', '100%', 'important');
+    if (vb.length === 4 && vb[2] && vb[3]) {
+      svg.style.setProperty('aspect-ratio', vb[2] + ' / ' + vb[3], 'important');
+    }
+    svg.removeAttribute('height');
+  });
 </script>
 </body>
 </html>
