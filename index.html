@@ -78,6 +78,23 @@
   .mermaid { background:var(--panel); border:1px solid var(--rule); border-radius:3px;
              padding:1.25rem; overflow-x:auto; }
   .mermaid svg { height:auto !important; max-width:100% !important; display:block; }
+
+  .boom { display:flex; flex-direction:column; align-items:center; gap:0; }
+  .boom .stap { background:var(--panel); border:1px solid var(--rule); border-radius:3px;
+                padding:.7rem 1.1rem; text-align:center; font-size:.9rem; max-width:34rem; }
+  .boom .stap strong { display:block; }
+  .boom .pijl { width:2px; height:1.5rem; background:var(--rule); }
+  .boom .zij { display:flex; align-items:center; gap:.6rem; }
+  .boom .zij .lijn { width:2.5rem; height:2px; background:var(--rule); }
+  .boom .uit { border-color:var(--zz); color:var(--zz); font-weight:650; }
+  .routes3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(13rem,1fr)); gap:.9rem;
+             width:100%; max-width:56rem; }
+  .routes3 .r { background:var(--panel); border:1px solid var(--rule); border-radius:3px; padding:.9rem 1rem; }
+  .routes3 .r h4 { font-size:.82rem; text-transform:uppercase; letter-spacing:.08em;
+                   color:var(--accent); margin-bottom:.4rem; }
+  .routes3 .r p { font-size:.84rem; margin:0; }
+  .routes3 .r .drempel { font-family:var(--font-data); font-size:.8rem; color:var(--ink);
+                         margin-top:.45rem; display:block; }
   .foot { border-top:1px solid var(--rule); padding-top:1.5rem; font-size:0.85rem;
           color:var(--ink-faint); max-width:40rem; }
 </style>
@@ -213,30 +230,41 @@
     <h2>De beslisboom</h2>
     <p>Elke route levert zijn eigen klasse op, in zijn eigen eenheid en tegen zijn eigen grens. Pas daarna kiest M5 de algemeenste van die uitkomsten. Een soort kan dus twee of drie keer worden doorgerekend.</p>
   </div>
-  <pre class="mermaid">
-flowchart TD
-  S([Soort]) --> E["Escapes eruit (M1)<br/>afgekeurd en in behandeling eruit"]
-  E --> C{"Op de CDNA-lijst?"}
-  C -- ja --> ZZ["zeer zeldzaam"]
-  C -- nee --> D["Bepaal per route<br/>een eigen klasse"]
-
-  D --> B["<b>Route 1 · broedvogel</b><br/>Sovon-broedparen<br/>mediaan 5 jaar<br/>grens B1 = 100"]
-  D --> T["<b>Route 2 · telpostsoort</b><br/>trektellen, mediaan 5 jaar<br/>zeevogels T1 = 170, T0 = 20<br/>roofvogels T1r = 5"]
-  D --> W["<b>Route 3 · overig</b><br/>jaarmax per hok 25 km<br/>mediaan 5 jaar<br/>grens N1 = 290, N0 = 11"]
-
-  B --> P{"Meer dan 75%<br/>in één provincie?"}
-  P -- ja --> P2["toets het aantal<br/>buiten die provincie"]
-  P -- nee --> M
-  P2 --> M
-
-  T --> M
-  W --> M
-  M["<b>Neem de algemeenste<br/>van de uitkomsten (M5)</b>"] --> H{"Ligt de uitkomst<br/>aan de andere kant<br/>van de grens?"}
-  H -- nee --> G["klasse blijft"]
-  H -- ja --> H2{"Liggen de laatste<br/>twee jaar ook<br/>aan die kant? (M6)"}
-  H2 -- nee --> G
-  H2 -- ja --> N["klasse verschuift"]
-</pre>
+  <div class="boom">
+    <div class="stap"><strong>Soort</strong></div>
+    <div class="pijl"></div>
+    <div class="stap">Escapes eruit (M1)<br>afgekeurd en in behandeling eruit</div>
+    <div class="pijl"></div>
+    <div class="zij">
+      <div class="stap"><strong>Staat de soort op de CDNA-lijst?</strong></div>
+      <div class="lijn"></div>
+      <div class="stap uit">ja &rarr; zeer zeldzaam</div>
+    </div>
+    <div class="pijl"></div>
+    <div class="stap">nee &rarr; bepaal per route een eigen klasse</div>
+    <div class="pijl"></div>
+    <div class="routes3">
+      <div class="r"><h4>Route 1 · broedvogel</h4>
+        <p>Sovon-broedparen, mediaan over vijf jaar. Zit meer dan 75% in één provincie, dan telt het aantal daarbuiten (M7).</p>
+        <span class="drempel">B1 = 100 paren</span></div>
+      <div class="r"><h4>Route 2 · telpostsoort</h4>
+        <p>Trektellen, mediaan over vijf jaar. Zeevogels op jaartotaal, roofvogels per 1000 teluren.</p>
+        <span class="drempel">T1 = 170 · T0 = 20 · T1r = 5</span></div>
+      <div class="r"><h4>Route 3 · overige soorten</h4>
+        <p>Waarneming.nl, jaarmaximum per hok van 25 km, opgeteld, mediaan over vijf jaar.</p>
+        <span class="drempel">N1 = 290 · N0 = 11</span></div>
+    </div>
+    <div class="pijl"></div>
+    <div class="stap"><strong>Neem de algemeenste van de uitkomsten (M5)</strong></div>
+    <div class="pijl"></div>
+    <div class="stap">Ligt die aan de andere kant van de grens<br><strong>én liggen de laatste twee jaar daar ook?</strong> (M6)</div>
+    <div class="pijl"></div>
+    <div class="zij">
+      <div class="stap" style="border-color:var(--accent);color:var(--accent);font-weight:650">ja &rarr; klasse verschuift</div>
+      <div class="lijn"></div>
+      <div class="stap">nee &rarr; klasse blijft</div>
+    </div>
+  </div>
 </section>
 
 <section>
@@ -568,24 +596,5 @@ flowchart TD
 
 </div>
 
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-  const donker = matchMedia('(prefers-color-scheme: dark)').matches
-    || document.documentElement.dataset.theme === 'dark';
-  mermaid.initialize({ startOnLoad: false, theme: donker ? 'dark' : 'neutral' });
-  await mermaid.run({ querySelector: '.mermaid' });
-  // mermaid injecteert eigen id-stijlen die display:inline forceren; hier hardzetten
-  document.querySelectorAll('.mermaid svg').forEach(svg => {
-    const vb = (svg.getAttribute('viewBox') || '').split(/\s+/).map(Number);
-    svg.style.setProperty('display', 'block', 'important');
-    svg.style.setProperty('width', '100%', 'important');
-    svg.style.setProperty('height', 'auto', 'important');
-    svg.style.setProperty('max-width', '100%', 'important');
-    if (vb.length === 4 && vb[2] && vb[3]) {
-      svg.style.setProperty('aspect-ratio', vb[2] + ' / ' + vb[3], 'important');
-    }
-    svg.removeAttribute('height');
-  });
-</script>
 </body>
 </html>
