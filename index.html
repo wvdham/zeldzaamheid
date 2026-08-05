@@ -556,7 +556,17 @@ flowchart TD
     <p>Het percentage gemiste records is dus geen goede voorspeller van risico. Wat telt is of een soort geconcentreerd of verspreid voorkomt, en of de afgeschermde waarnemingen buiten het bekende beeld liggen.</p>
 
     <h3>De hokmaat is een keuze die de volgorde verandert</h3>
-    <p>Alles hier staat op hokken van 25 km. Bij 10 km stijgt de mediane soort met een factor 1,17, maar dat gemiddelde verbergt waar het om gaat: geconcentreerde soorten stijgen veel harder dan verspreide. Steppekiekendief gaat ×2,13, zwarte wouw ×2,76, korhoen ×1,89 en dwerggans ×1,52, terwijl grote kruisbek op ×1,04 blijft en notenkraker op ×1,00. Een fijner raster hakt concentraties in meer hokken en telt daar dus minder samen.</p>
+    <p>Alles hier staat op hokken van 25 km. Bij 10 km stijgt elke soort, maar niet even hard, en het patroon is scherp: <strong>het hangt af van hoeveel vogels er per hok zitten.</strong></p>
+    <table style="width:auto;margin:.6rem 0"><tbody>
+      <tr><td class="name">Bosuil</td><td class="num">&times;3,1</td><td style="font-size:.8rem;color:var(--ink-faint)">2,8 vogels per hok</td></tr>
+      <tr><td class="name">Kleine bonte specht</td><td class="num">&times;3,1</td><td style="font-size:.8rem;color:var(--ink-faint)">2,1 vogels per hok</td></tr>
+      <tr><td class="name">Kerkuil</td><td class="num">&times;3,0</td><td style="font-size:.8rem;color:var(--ink-faint)">2,2 vogels per hok</td></tr>
+      <tr><td class="name">Alk</td><td class="num">&times;1,2</td><td style="font-size:.8rem;color:var(--ink-faint)">19 vogels per hok</td></tr>
+      <tr><td class="name">Noordse stern</td><td class="num">&times;1,1</td><td style="font-size:.8rem;color:var(--ink-faint)">52 vogels per hok</td></tr>
+      <tr><td class="name">Roodkeelduiker</td><td class="num">&times;1,0</td><td style="font-size:.8rem;color:var(--ink-faint)">224 vogels per hok</td></tr>
+    </tbody></table>
+    <p>Over de negentig doorgerekende soorten zitten er bij de grootste stijgers gemiddeld 2,2 vogels in een hok en bij de kleinste 71. De reden is mechanisch: bij een groep van tweehonderd zeekoeten in één hok blijft die groep na opdeling gewoon in één deelhok zitten, dus het maximum verandert niet en de maat ook niet. Bij een bosuil die met tweeën in een hok van 25 km zit, blijken het na opdeling twee verschillende deelhokken te zijn, en dan telt elk zijn eigen maximum mee.</p>
+    <p><strong>Een fijner raster tilt dus solitaire, dun verspreide soorten op ten opzichte van groepsvogels.</strong> Dat is geen technisch detail maar een keuze over wat de maat moet belonen: talrijkheid, of het aantal plekken waar een soort te vinden is. Hoe fijner het raster, hoe meer het laatste gaat wegen.</p>
     <p>Daarom zijn de drempels niet overdraagbaar: bij een andere hokmaat moeten N0 en N1 opnieuw worden geijkt en niet omgerekend. Bij elke meting worden nu 5, 10 en 25 km tegelijk berekend, wat niets extra kost omdat het ophalen van de waarnemingen het dure deel is. Dat leverde meteen wat op: een paar soorten kwamen bij een fijner raster juist lager uit, wat onmogelijk is, en dat wees op een vaste ondergrens in M4 die niet meeschaalde. Die staat nu in N0 uitgedrukt.</p>
 
     <h3>N2 en B2 bestaan niet</h3>
