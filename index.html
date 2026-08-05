@@ -1,11 +1,3 @@
-<!doctype html>
-<html lang="nl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-</head>
-<body>
 <title>Zeldzaamheidsklassen vogels Nederland — meetmethode en cijfers</title>
 <style>
   :root {
@@ -75,23 +67,8 @@
   .rw { font-size:0.87rem; color:var(--ink-faint); }
   .grid2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(19rem,1fr)); gap:1rem; }
   ul { padding-left:1.1rem; display:flex; flex-direction:column; gap:0.4rem; }
-
-  .boom { display:flex; flex-direction:column; align-items:center; gap:0; }
-  .boom .stap { background:var(--panel); border:1px solid var(--rule); border-radius:3px;
-                padding:.7rem 1.1rem; text-align:center; font-size:.9rem; max-width:34rem; }
-  .boom .stap strong { display:block; }
-  .boom .pijl { width:2px; height:1.5rem; background:var(--rule); }
-  .boom .zij { display:flex; align-items:center; gap:.6rem; }
-  .boom .zij .lijn { width:2.5rem; height:2px; background:var(--rule); }
-  .boom .uit { border-color:var(--zz); color:var(--zz); font-weight:650; }
-  .routes3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(13rem,1fr)); gap:.9rem;
-             width:100%; max-width:56rem; }
-  .routes3 .r { background:var(--panel); border:1px solid var(--rule); border-radius:3px; padding:.9rem 1rem; }
-  .routes3 .r h4 { font-size:.82rem; text-transform:uppercase; letter-spacing:.08em;
-                   color:var(--accent); margin-bottom:.4rem; }
-  .routes3 .r p { font-size:.84rem; margin:0; }
-  .routes3 .r .drempel { font-family:var(--font-data); font-size:.8rem; color:var(--ink);
-                         margin-top:.45rem; display:block; }
+  .mermaid { background:var(--panel); border:1px solid var(--rule); border-radius:3px;
+             padding:1.25rem; overflow-x:auto; }
   .foot { border-top:1px solid var(--rule); padding-top:1.5rem; font-size:0.85rem;
           color:var(--ink-faint); max-width:40rem; }
 </style>
@@ -100,7 +77,6 @@
 
 <header>
   <div class="eyebrow">Naslag · zeldzaamheidsklassen waarneming.nl · augustus 2026</div>
-
   <h1>Zeldzaamheidsklassen: meetmethode en cijfers</h1>
   <p class="lede">Een uitgewerkte meetmethode voor de klassen algemeen, vrij algemeen, zeldzaam en zeer zeldzaam, met de doorgerekende cijfers per soort. Negen meetregels leggen vast hoe geteld wordt; vijf drempels bepalen waar de klassegrenzen liggen. Alle aantallen komen uit waarneming.nl, trektellen.nl en de Sovon-jaarrapporten, en zijn per soort na te rekenen.</p>
 </header>
@@ -133,7 +109,7 @@
       <h3>Alle overige soorten</h3>
       <p style="font-size:.88rem"><strong>Bron</strong> waarneming.nl<br>
       <strong>Eenheid</strong> jaarmaximum per hok van 25 km, opgeteld, mediaan over vijf jaar<br>
-      <strong>Grens</strong> N1 = 290 en N0 = 11</p>
+      <strong>Grens</strong> N1 = 270 en N0 = 11</p>
       <p style="font-size:.84rem;color:var(--ink-faint)">Escapes tellen niet mee; afgekeurde en in behandeling zijnde waarnemingen ook niet. Onder de vijftig is dat laatste bepalend, daarboven verwaarloosbaar.</p>
     </div>
   </div>
@@ -144,7 +120,7 @@
 
 <section>
   <div class="prose">
-    <h2>Vier gaten in de huidige flowchart</h2>
+    <h2>Vier gaten in de oude flowchart</h2>
     <p>De terugkerende discussies over kwak, draaihals, bijeneter en zwarte ooievaar zijn alle vier terug te voeren op deze vier punten. Geen ervan gaat over de hoogte van een drempel.</p>
   </div>
   <div class="grid2">
@@ -227,41 +203,30 @@
     <h2>De beslisboom</h2>
     <p>Elke route levert zijn eigen klasse op, in zijn eigen eenheid en tegen zijn eigen grens. Pas daarna kiest M5 de algemeenste van die uitkomsten. Een soort kan dus twee of drie keer worden doorgerekend.</p>
   </div>
-  <div class="boom">
-    <div class="stap"><strong>Soort</strong></div>
-    <div class="pijl"></div>
-    <div class="stap">Escapes eruit (M1)<br>afgekeurd en in behandeling eruit</div>
-    <div class="pijl"></div>
-    <div class="zij">
-      <div class="stap"><strong>Staat de soort op de CDNA-lijst?</strong></div>
-      <div class="lijn"></div>
-      <div class="stap uit">ja &rarr; zeer zeldzaam</div>
-    </div>
-    <div class="pijl"></div>
-    <div class="stap">nee &rarr; bepaal per route een eigen klasse</div>
-    <div class="pijl"></div>
-    <div class="routes3">
-      <div class="r"><h4>Route 1 · broedvogel</h4>
-        <p>Sovon-broedparen, mediaan over vijf jaar. Zit meer dan 75% in één provincie, dan telt het aantal daarbuiten (M7).</p>
-        <span class="drempel">B1 = 100 paren</span></div>
-      <div class="r"><h4>Route 2 · telpostsoort</h4>
-        <p>Trektellen, mediaan over vijf jaar. Zeevogels op jaartotaal, roofvogels per 1000 teluren.</p>
-        <span class="drempel">T1 = 170 · T0 = 20 · T1r = 5</span></div>
-      <div class="r"><h4>Route 3 · overige soorten</h4>
-        <p>Waarneming.nl, jaarmaximum per hok van 25 km, opgeteld, mediaan over vijf jaar.</p>
-        <span class="drempel">N1 = 290 · N0 = 11</span></div>
-    </div>
-    <div class="pijl"></div>
-    <div class="stap"><strong>Neem de algemeenste van de uitkomsten (M5)</strong></div>
-    <div class="pijl"></div>
-    <div class="stap">Ligt die aan de andere kant van de grens<br><strong>én liggen de laatste twee jaar daar ook?</strong> (M6)</div>
-    <div class="pijl"></div>
-    <div class="zij">
-      <div class="stap" style="border-color:var(--accent);color:var(--accent);font-weight:650">ja &rarr; klasse verschuift</div>
-      <div class="lijn"></div>
-      <div class="stap">nee &rarr; klasse blijft</div>
-    </div>
-  </div>
+  <pre class="mermaid">
+flowchart TD
+  S([Soort]) --> E["Escapes eruit (M1)<br/>afgekeurd en in behandeling eruit"]
+  E --> C{"Op de CDNA-lijst?"}
+  C -- ja --> ZZ["zeer zeldzaam"]
+  C -- nee --> D["Bepaal per route<br/>een eigen klasse"]
+
+  D --> B["<b>Route 1 · broedvogel</b><br/>Sovon-broedparen<br/>mediaan 5 jaar<br/>grens B1 = 100"]
+  D --> T["<b>Route 2 · telpostsoort</b><br/>trektellen, mediaan 5 jaar<br/>zeevogels T1 = 170, T0 = 20<br/>roofvogels T1r = 5"]
+  D --> W["<b>Route 3 · overig</b><br/>jaarmax per hok 25 km<br/>mediaan 5 jaar<br/>grens N1 = 270, N0 = 11"]
+
+  B --> P{"Meer dan 75%<br/>in één provincie?"}
+  P -- ja --> P2["toets het aantal<br/>buiten die provincie"]
+  P -- nee --> M
+  P2 --> M
+
+  T --> M
+  W --> M
+  M["<b>Neem de algemeenste<br/>van de uitkomsten (M5)</b>"] --> H{"Ligt de uitkomst<br/>aan de andere kant<br/>van de grens?"}
+  H -- nee --> G["klasse blijft"]
+  H -- ja --> H2{"Liggen de laatste<br/>twee jaar ook<br/>aan die kant? (M6)"}
+  H2 -- nee --> G
+  H2 -- ja --> N["klasse verschuift"]
+</pre>
 </section>
 
 <section>
@@ -276,7 +241,7 @@
         <tr><td class="name">B1</td><td>broedparen, onder deze grens zeldzaam</td><td class="num">100</td></tr>
         <tr><td class="name">B2</td><td>broedparen, boven deze grens algemeen</td><td class="num" style="color:var(--zz)">niet vastgesteld</td></tr>
         <tr><td class="name">N0</td><td>ontdubbeld, onder deze grens zeer zeldzaam (bovenop de CDNA-lijst)</td><td class="num">11</td></tr>
-        <tr><td class="name">N1</td><td>ontdubbeld, onder deze grens zeldzaam</td><td class="num">290</td></tr>
+        <tr><td class="name">N1</td><td>ontdubbeld, onder deze grens zeldzaam</td><td class="num">270</td></tr>
         <tr><td class="name">N2</td><td>ontdubbeld, boven deze grens algemeen</td><td class="num">nog te bepalen</td></tr>
         <tr><td class="name">T0</td><td>zeetrekkers, jaartotaal trektellen; onder deze grens zeer zeldzaam</td><td class="num">20</td></tr>
         <tr><td class="name">T1</td><td>zeetrekkers, jaartotaal trektellen; onder deze grens zeldzaam</td><td class="num">170</td></tr>
@@ -289,10 +254,10 @@
             <caption>Zeetrekroute · alle telpostsoorten van de zee. Trektellen.nl, jaartotalen 2021&ndash;2025 met de mediaan, aflopend gesorteerd. Geen correctie voor telinspanning: het aantal posten dat deze soorten meldt is stabiel (parelduiker 30 naar 26, grote zee-eend 31 naar 30).</caption>
       <thead><tr><th>Soort</th><th>Reeks 2021&ndash;2025</th><th class="num">Mediaan</th><th>Klasse nu</th><th>Wordt</th><th></th></tr></thead>
       <tbody>
-        <tr><td class="name">Zwarte zee-eend</td><td style="font-family:var(--font-data);font-size:.78rem">732.991 · 755.935 · 626.530 · 649.880 · 344.381</td><td class="num"><strong>649.880</strong></td><td><span class="pill p-a">algemeen</span></td><td><span class="pill p-a">algemeen</span></td><td class="same">=</td></tr>
-        <tr><td class="name">Roodkeelduiker</td><td style="font-family:var(--font-data);font-size:.78rem">175.017 · 114.412 · 88.058 · 81.968 · 59.522</td><td class="num"><strong>88.058</strong></td><td><span class="pill p-a">algemeen</span></td><td><span class="pill p-a">algemeen</span></td><td class="same">=</td></tr>
-        <tr><td class="name">Jan-van-gent</td><td style="font-family:var(--font-data);font-size:.78rem">62.184 · 34.208 · 117.519 · 44.969 · 62.602</td><td class="num"><strong>62.184</strong></td><td><span class="pill p-a">algemeen</span></td><td><span class="pill p-a">algemeen</span></td><td class="same">=</td></tr>
-        <tr><td class="name">Drieteenmeeuw</td><td style="font-family:var(--font-data);font-size:.78rem">91.418 · 43.017 · 151.770 · 25.542 · 14.362</td><td class="num"><strong>43.017</strong></td><td><span class="pill p-a">algemeen</span></td><td><span class="pill p-a">algemeen</span></td><td class="same">=</td></tr>
+        <tr><td class="name">Zwarte zee-eend</td><td style="font-family:var(--font-data);font-size:.78rem">732.991 · 755.935 · 626.530 · 649.880 · 344.381</td><td class="num"><strong>649.880</strong></td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="pill p-va">vrij algemeen</span></td><td class="same">=</td></tr>
+        <tr><td class="name">Roodkeelduiker</td><td style="font-family:var(--font-data);font-size:.78rem">175.017 · 114.412 · 88.058 · 81.968 · 59.522</td><td class="num"><strong>88.058</strong></td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="pill p-va">vrij algemeen</span></td><td class="same">=</td></tr>
+        <tr><td class="name">Jan-van-gent</td><td style="font-family:var(--font-data);font-size:.78rem">62.184 · 34.208 · 117.519 · 44.969 · 62.602</td><td class="num"><strong>62.184</strong></td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="pill p-va">vrij algemeen</span></td><td class="same">=</td></tr>
+        <tr><td class="name">Drieteenmeeuw</td><td style="font-family:var(--font-data);font-size:.78rem">91.418 · 43.017 · 151.770 · 25.542 · 14.362</td><td class="num"><strong>43.017</strong></td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="pill p-va">vrij algemeen</span></td><td class="same">=</td></tr>
         <tr><td class="name">Zeekoet</td><td style="font-family:var(--font-data);font-size:.78rem">7.560 · 4.910 · 8.272 · 1.785 · 478</td><td class="num"><strong>4.910</strong></td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="pill p-va">vrij algemeen</span></td><td class="same">=</td></tr>
         <tr><td class="name">Grote zee-eend</td><td style="font-family:var(--font-data);font-size:.78rem">3.557 · 1.987 · 2.974 · 5.898 · 949</td><td class="num"><strong>2.974</strong></td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="pill p-va">vrij algemeen</span></td><td class="same">=</td></tr>
         <tr><td class="name">Kleine jager</td><td style="font-family:var(--font-data);font-size:.78rem">6.030 · 2.243 · 4.863 · 924 · 2.576</td><td class="num"><strong>2.576</strong></td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="pill p-va">vrij algemeen</span></td><td class="same">=</td></tr>
@@ -341,8 +306,15 @@
   <div class="band">
     <h3>Waarom deze grenzen</h3>
     <p>Bij de zeetrekkers wijst de data de plek aan. Op de jaartotalen zit een duidelijke sprong tussen de grote zee-eend (649.880) en de rest, en onderaan tussen papegaaiduiker (31) en vale pijlstormvogel (14). T1 = 170 en T0 = 20 vallen in die ruimtes, en reproduceren de bestaande klassen op drie soorten na.</p>
-    <p>Bij <strong>N0 = 11</strong> is de scheiding volmaakt: de hoogste zeer zeldzame soort staat op 10, de laagste zeldzame op 11. Geen enkele soort verschuift.</p>
-    <p>Bij <strong>N1 = 290</strong> ligt het anders. Daar wijst de data geen grens aan &mdash; tussen 108 en 250 liggen twaalf soorten dicht op elkaar met de bestaande klassen er willekeurig doorheen. 290 valt in het eerstvolgende echte gat daarboven, tussen zwarte ooievaar (250) en geelpootmeeuw (334). Dat is een verdedigbare keuze, maar wel een keuze.</p>
+    <p>Bij <strong>N0 = 11</strong> is de scheiding bijna schoon: op twee soorten na ligt alles wat nu zeldzaam heet erboven en alles wat zeer zeldzaam heet eronder. Die twee zijn humes bladkoning (19) en struikrietzanger (16); geen van beide staat op de CDNA-lijst, dus ze schuiven een klasse omlaag.</p>
+    <p>Bij <strong>N1 = 270</strong> ligt het anders: daar wijst de data geen scheiding aan, en is het een keuze. De onderbouwing staat hieronder.</p>
+    </div>
+  <div class="band flag">
+    <h3>De onderbouwing van N1 = 270</h3>
+    <p>Kijk alleen naar de soorten waar N1 de uitkomst daadwerkelijk bepaalt, dus zonder de broedvogels die M5 sowieso opvangt. Tussen 250 en 108 liggen er twaalf dicht op elkaar, met de bestaande klassen er willekeurig doorheen; elke grens in die kluwen splitst soorten die niet van elkaar te onderscheiden zijn. Daarboven ligt een leeg vak: zwarte ooievaar op 250, dan niets tot temmincks strandloper op 295. In dat vak moet de grens liggen.</p>
+    <p>Bij 150 verschuiven er acht soorten naar algemener, waaronder kwak, witwangstern, lachstern en dwerggans. Bij 270 blijven die allemaal zeldzaam en gaat alleen de bijeneter omhoog.</p><p>Het vak loopt van 250 tot 295, dus 270 ligt er precies in het midden. Dat is bewust niet 290: op 290 had temmincks strandloper nog maar vijf eenheden speling, wat voor een maat met deze ruis te krap is. Elke waarde tussen 251 en 294 geeft exact dezelfde veertien verschuivingen. Wat de grens niet raakt zijn kwartel (254), nachtzwaluw (263), sprinkhaanzanger (271) en wielewaal (276): die liggen er middenin, maar zijn slecht waarneembare broedvogels met een ruime populatie, en M5 vangt ze op ongeacht waar N1 ligt.</p>
+  </div>
+  <div class="prose">
     </div>
   <div class="scroll">
     <table>
@@ -357,7 +329,7 @@
         <tr><td class="name">Grote Karekiet</td><td class="num">105–120</td><td class="num">88</td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="pill p-va">vrij algemeen</span></td><td style="font-size:.8rem;white-space:normal;color:var(--ink-faint)">—</td></tr>
         <tr><td colspan="6" style="background:var(--accent);color:var(--panel);font-weight:700;font-size:.8rem;letter-spacing:.04em;text-align:center;padding:.35rem">&mdash; grens B1 = 100 broedparen &mdash;</td></tr>
         <tr><td class="name">Steltkluut</td><td class="num">76–80</td><td class="num">361</td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="pill p-z">zeldzaam</span></td><td style="font-size:.8rem;white-space:normal;color:var(--ink-faint)"><strong>M5 redt hem</strong>: 361 op de waarnemingsroute, boven N1. Blijft vrij algemeen.</td></tr>
-        <tr><td class="name">Porseleinhoen</td><td class="num">60–100</td><td class="num">64</td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="pill p-z">zeldzaam</span></td><td style="font-size:.8rem;white-space:normal;color:var(--ink-faint)"><strong>M5 redt hem niet</strong>: op de waarnemingsroute staat hij op 64, ook onder N1. Wordt dus zeldzaam.</td></tr>
+        <tr><td class="name">Porseleinhoen</td><td class="num">60–100</td><td class="num">86</td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="pill p-z">zeldzaam</span></td><td style="font-size:.8rem;white-space:normal;color:var(--ink-faint)"><strong>M5 redt hem niet</strong>: op de waarnemingsroute staat hij op 86, ook onder N1. Wordt dus zeldzaam.</td></tr>
         <tr><td class="name">Kwak</td><td class="num">60–65</td><td class="num">164</td><td><span class="pill p-z">zeldzaam</span></td><td><span class="pill p-z">zeldzaam</span></td><td style="font-size:.8rem;white-space:normal;color:var(--ink-faint)">—</td></tr>
         <tr><td class="name">Kwartelkoning</td><td class="num">50–60</td><td class="num">31</td><td><span class="pill p-z">zeldzaam</span></td><td><span class="pill p-z">zeldzaam</span></td><td style="font-size:.8rem;white-space:normal;color:var(--ink-faint)">—</td></tr>
         <tr><td class="name">Witwangstern</td><td class="num">36–40</td><td class="num">166</td><td><span class="pill p-z">zeldzaam</span></td><td><span class="pill p-z">zeldzaam</span></td><td style="font-size:.8rem;white-space:normal;color:var(--ink-faint)">—</td></tr>
@@ -376,10 +348,10 @@
   </div>
   <div class="scroll">
     <table>
-      <caption><strong>Soorten die op deze maat van klasse kunnen veranderen, met beide grenzen ingetekend. Geen van deze soorten staat op de CDNA-lijst, dus M8 grijpt nergens in.</strong> Jaarmaximum per hok van 25 km. Vetgedrukte getallen zijn vijfjaarsmedianen (2021–2025) zoals M4 voorschrijft; houd de muis erboven voor de reeks. De overige zijn kalenderjaar 2025; die liggen zo ver van elke grens dat een mediaan de uitkomst niet kan veranderen. N1 = 290 ligt midden in het gat tussen geelpootmeeuw (334) en zwarte ooievaar (250) &mdash; het op één na grootste gat in de reeks, en de enige plek in dit bereik waar de data zelf een scheiding aanwijst. Twee groepen zijn eruit gelaten omdat hun klasse niet ter discussie staat: 47 broedvogels waarvan de Sovon-populatie ruim boven B1 ligt (M5 beslist daar), en 45 soorten die te ver van elke drempel liggen &mdash; aan de bovenkant toendrarietgans (146.794) en rosse grutto (131.784), aan de onderkant de soorten die in de tabel hieronder staan. Houtsnip (2.000&ndash;3.500 paren), grauwe vliegenvanger (17.000&ndash;23.000) en goudvink (9.000&ndash;11.000) zijn op dezelfde grond verwijderd; die cijfers zijn nagekeken bij Sovon. Een <span style="color:var(--accent)">&#9679;</span> betekent dat het cijfer uit een ingelogde sessie komt; een ◆ dat de soort ook via de broedvogelroute loopt en dus in beide tabellen staat.</caption>
-      <thead><tr><th>Soort</th><th class="num">Ontdubbeld</th><th class="num">Hokken</th><th>Klasse nu</th><th>Bij N1 = 290</th></tr></thead>
+      <caption><strong>Soorten die op deze maat van klasse kunnen veranderen, met beide grenzen ingetekend. Geen van deze soorten staat op de CDNA-lijst, dus M8 grijpt nergens in.</strong> Jaarmaximum per hok van 25 km. Vetgedrukte getallen zijn vijfjaarsmedianen (2021–2025) zoals M4 voorschrijft; houd de muis erboven voor de reeks. De overige zijn kalenderjaar 2025; die liggen zo ver van elke grens dat een mediaan de uitkomst niet kan veranderen. N1 = 270 ligt midden in het lege vak tussen zwarte ooievaar (250) en temmincks strandloper (295). Twee groepen zijn eruit gelaten omdat hun klasse niet ter discussie staat: 47 broedvogels waarvan de Sovon-populatie ruim boven B1 ligt (M5 beslist daar), en 45 soorten die te ver van elke drempel liggen &mdash; aan de bovenkant toendrarietgans (146.794) en rosse grutto (131.784), aan de onderkant de soorten die in de tabel hieronder staan. Houtsnip (2.000&ndash;3.500 paren), grauwe vliegenvanger (17.000&ndash;23.000) en goudvink (9.000&ndash;11.000) zijn op dezelfde grond verwijderd; die cijfers zijn nagekeken bij Sovon. Een <span style="color:var(--accent)">&#9679;</span> betekent dat het cijfer uit een ingelogde sessie komt; een ◆ dat de soort ook via de broedvogelroute loopt en dus in beide tabellen staat.</caption>
+      <thead><tr><th>Soort</th><th class="num">Ontdubbeld</th><th class="num">Hokken</th><th>Klasse nu</th><th>Bij N1 = 270</th></tr></thead>
       <tbody>
-        <tr><td class="name">Frater</td><td class="num" title="3.166 · 3.705 · 3.808 · 2.522 · 2.957"><strong>3.166</strong></td><td class="num">32</td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="same">=</span></td></tr>
+        <tr><td class="name">Frater</td><td class="num" title="3.166 · 3.705 · 3.808 · 2.522 · 2.957"><strong>3.166</strong></td><td class="num">39</td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="same">=</span></td></tr>
         <tr><td class="name">Beflijster</td><td class="num" title="964 · 1270 · 659 · 924 · 594"><strong>924</strong></td><td class="num">88</td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="same">=</span></td></tr>
         <tr><td class="name">Reuzenstern</td><td class="num" title="497 · 516 · 581 · 600 · 898"><strong>581</strong></td><td class="num">66</td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="same">=</span></td></tr>
         <tr><td class="name">Bokje <span title="ingelogde sessie" style="color:var(--accent)">&#9679;</span></td><td class="num">399</td><td class="num">90</td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="same">=</span></td></tr>
@@ -388,7 +360,7 @@
         <tr><td class="name">Geelpootmeeuw</td><td class="num" title="258 · 316 · 334 · 322 · 334"><strong>322</strong></td><td class="num">91</td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="same">=</span></td></tr>
         <tr><td class="name">Strandplevier <span style="color:var(--accent-soft)">◆</span></td><td class="num" title="314 · 303 · 225 · 330 · 300"><strong>303</strong></td><td class="num">30</td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="same">=</span></td></tr>
         <tr><td class="name">Temmincks Strandloper</td><td class="num" title="295 · 267 · 448 · 282 · 649"><strong>295</strong></td><td class="num">69</td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="same">=</span></td></tr>
-        <tr><td colspan="5" style="background:var(--accent);color:var(--panel);font-weight:700;font-size:.8rem;letter-spacing:.04em;text-align:center;padding:.35rem">&mdash; grens N1 = 290 &mdash;</td></tr>
+        <tr><td colspan="5" style="background:var(--accent);color:var(--panel);font-weight:700;font-size:.8rem;letter-spacing:.04em;text-align:center;padding:.35rem">&mdash; grens N1 = 270 &mdash;</td></tr>
         <tr><td class="name">Zwarte Ooievaar</td><td class="num" title="230 · 282 · 205 · 250 · 444"><strong>250</strong></td><td class="num">89</td><td><span class="pill p-z">zeldzaam</span></td><td><span class="same">=</span></td></tr>
         <tr><td class="name">Velduil <span title="ingelogde sessie" style="color:var(--accent)">&#9679;</span></td><td class="num" title="179 · 228 · 282 · 376 · 195"><strong>228</strong></td><td class="num">80</td><td><span class="pill p-va">vrij algemeen</span></td><td><span class="chg dn">naar zeldzaam</span></td></tr>
         <tr><td class="name">Morinelplevier</td><td class="num" title="264 · 190 · 226 · 227 · 181"><strong>226</strong></td><td class="num">60</td><td><span class="pill p-z">zeldzaam</span></td><td><span class="same">=</span></td></tr>
@@ -434,7 +406,7 @@
 <section>
   <div class="prose">
     <h2>Wat er verandert</h2>
-    <p>Twaalf soorten van de ruim zeshonderd, met N1 = 290, T1 = 170, T0 = 20, N0 = 11 en B1 = 100. Twee worden algemener, tien zeldzamer. Alle grensgevallen staan inmiddels op vijfjaarsmedianen; de overstap van kalenderjaar 2025 naar de mediaan veranderde geen enkele klasse, maar bracht wel <strong>temmincks strandloper</strong> van 649 naar 295 &mdash; vijf eenheden boven de grens, en daarmee het scherpste geval van de lijst.</p>
+    <p>Veertien soorten van de ruim zeshonderd, met N1 = 270, T1 = 170, T0 = 20, N0 = 11 en B1 = 100. Vier worden algemener, tien zeldzamer. Twee van de vier gaan niet van zeldzaam naar vrij algemeen maar een stap lager in de lijst, van zeer zeldzaam naar zeldzaam.</p>
   </div>
   <div class="grid2">
     <div class="band">
@@ -442,7 +414,10 @@
       <ul>
         <li><strong>Bijeneter</strong> &mdash; mediaan 347 op de waarnemingsmaat (2025 gaf 573); als broedvogel 23 paren, maar M5 neemt de algemeenste uitkomst</li>
         <li><strong>Draaihals</strong> &mdash; broedvogelroute, 180&ndash;230 paren; de concentratieregel redt hem niet want Drenthe haalt maar 34%</li>
+        <li><strong>Humes bladkoning</strong> &mdash; van zeer zeldzaam naar zeldzaam; mediaan 19, boven N0, en de soort staat niet op de CDNA-lijst, dus M8 houdt hem niet tegen. De reeks stijgt: 2025 was met 34 het hoogste jaar</li>
+        <li><strong>Struikrietzanger</strong> &mdash; van zeer zeldzaam naar zeldzaam; mediaan 16, boven N0, ook geen CDNA-soort. Hier daalt de reeks juist, met 3 in 2025</li>
       </ul>
+      <p style="font-size:.85rem;color:var(--ink-faint);margin-top:.6rem">De <strong>oehoe</strong> zou als vijfde omlaag gaan (130&ndash;150 paren, ruim boven B1), maar M6 houdt hem tegen tot twee opeenvolgende jaren dezelfde kant op wijzen.</p>
     </div>
     <div class="band">
       <h3>Zeldzamer</h3>
@@ -459,21 +434,17 @@
       </ul>
     </div>
   </div>
-  <div class="band flag">
-    <h3>De onderbouwing van N1 = 290</h3>
-    <p>Tussen 250 en 108 liggen twaalf soorten dicht op elkaar, met de huidige klassen er willekeurig doorheen. Elke grens in die kluwen splitst soorten die niet van elkaar te onderscheiden zijn. Daarboven staan ze ruim uit elkaar: 334, 399, 573, 594, 649.</p>
-    <p>Bij 150 verschuiven er acht soorten naar algemener, waaronder kwak, witwangstern, lachstern en dwerggans. Bij 290 blijven die allemaal zeldzaam en gaat alleen de bijeneter omhoog &mdash; de soort waarvan de aantallen sinds mei 2026 al ter discussie stonden.</p>
-  </div>
+
 </section>
 
 <section>
   <div class="prose">
     <h2>De onderkant van de zeldzaam-lijst</h2>
-    <p>De soorten die tegen zeer zeldzaam aan schuren, met de zeer zeldzame soorten eronder in dezelfde volgorde. De hoogste zeer zeldzame staat op 10, de laagste zeldzame op 11: geen overlap, en N0 = 11 reproduceert de bestaande indeling exact.</p>
+    <p>De soorten die tegen zeer zeldzaam aan schuren, met de zeer zeldzame soorten eronder in dezelfde volgorde. De grens is bijna schoon: op twee soorten na ligt alles wat nu zeldzaam heet boven 11 en alles wat zeer zeldzaam heet eronder. Die twee zijn humes bladkoning (19) en struikrietzanger (16). Ze staan zeer zeldzaam, worden niet door de CDNA beoordeeld en komen op deze maat dus in zeldzaam terecht.</p>
   </div>
   <div class="scroll">
     <table>
-            <caption>Onderkant van de zeldzaam-lijst en de zeer zeldzame soorten in één volgorde. Jaarmax per hok van 25 km, reeks 2021&ndash;2025, gesorteerd op mediaan. Geen van deze soorten staat op de CDNA-lijst, dus M8 grijpt nergens in.</caption>
+            <caption>Onderkant van de zeldzaam-lijst en de zeer zeldzame soorten in één volgorde. Jaarmax per hok van 25 km, reeks 2021&ndash;2025, gesorteerd op mediaan. Zeven van deze soorten worden door de CDNA beoordeeld (ross&rsquo; gans, kleine topper, grote grijze snip, woestijntapuit, siberische taling, zwartkoprietzanger, kuifkoekoek). Alle zeven staan al onder N0, dus M8 bevestigt hier alleen wat de maat zelf ook zegt.</caption>
       <thead><tr><th>Soort</th><th>Reeks 2021&ndash;2025</th><th class="num">Mediaan</th><th>Klasse nu</th><th>Kanttekening</th></tr></thead>
       <tbody>
         <tr><td class="name">Roodmus</td><td style="font-family:var(--font-data);font-size:.8rem">19 · 24 · 29 · 31 · 13</td><td class="num"><strong>24</strong></td><td><span class="pill p-z">zeldzaam</span></td><td style="font-size:.78rem;color:var(--ink-faint);white-space:normal"></td></tr>
@@ -561,7 +532,7 @@
         <tr><td class="name">Oehoe</td><td class="num">87 paren</td><td class="num" style="color:var(--va);font-weight:650">+23%</td><td style="font-size:.82rem">B1 = 100 paren</td><td><span class="pill p-z">zeldzaam</span> &rarr; <span class="pill p-va">vrij algemeen</span></td><td class="num">2027</td><td style="font-size:.82rem;white-space:normal;color:var(--ink-faint)">staat al twee jaar boven de grens (106 en 129); alleen M6 houdt hem nog tegen</td></tr>
         <tr><td class="name">Papegaaiduiker</td><td class="num">31 vogels</td><td class="num" style="color:var(--z);font-weight:650">&minus;27%</td><td style="font-size:.82rem">T0 = 20 vogels</td><td><span class="pill p-z">zeldzaam</span> &rarr; <span class="pill p-zz">zeer zeldzaam</span></td><td class="num">2027</td><td style="font-size:.82rem;white-space:normal;color:var(--ink-faint)">trektellen: van 47 naar 9 in vijf jaar</td></tr>
         <tr><td class="name">Grote burgemeester</td><td class="num">20</td><td class="num" style="color:var(--z);font-weight:650">&minus;22%</td><td style="font-size:.82rem">N0 = 11</td><td><span class="pill p-z">zeldzaam</span> &rarr; <span class="pill p-zz">zeer zeldzaam</span></td><td class="num">2028</td><td style="font-size:.82rem;white-space:normal;color:var(--ink-faint)">van 29 naar 10 in vijf jaar</td></tr>
-        <tr><td class="name">Kwak</td><td class="num">164</td><td class="num" style="color:var(--va);font-weight:650">+14%</td><td style="font-size:.82rem">N1 = 290</td><td><span class="pill p-z">zeldzaam</span> &rarr; <span class="pill p-va">vrij algemeen</span></td><td class="num">2030</td><td style="font-size:.82rem;white-space:normal;color:var(--ink-faint)">2026 stond eind juli al op 345 tegen 236 over heel 2025</td></tr>
+        <tr><td class="name">Kwak</td><td class="num">164</td><td class="num" style="color:var(--va);font-weight:650">+14%</td><td style="font-size:.82rem">N1 = 270</td><td><span class="pill p-z">zeldzaam</span> &rarr; <span class="pill p-va">vrij algemeen</span></td><td class="num">2030</td><td style="font-size:.82rem;white-space:normal;color:var(--ink-faint)">2026 stond eind juli al op 345 tegen 236 over heel 2025</td></tr>
         <tr><td class="name">Kleine burgemeester</td><td class="num">18</td><td class="num" style="color:var(--z);font-weight:650">&minus;11%</td><td style="font-size:.82rem">N0 = 11</td><td><span class="pill p-z">zeldzaam</span> &rarr; <span class="pill p-zz">zeer zeldzaam</span></td><td class="num">2030</td><td style="font-size:.82rem;white-space:normal;color:var(--ink-faint)">zelfde beweging als de grote, iets trager</td></tr>
         <tr><td class="name">Parelduiker</td><td class="num">494 vogels</td><td class="num" style="color:var(--z);font-weight:650">&minus;20%</td><td style="font-size:.82rem">T1 = 170 vogels</td><td><span class="pill p-va">vrij algemeen</span> &rarr; <span class="pill p-z">zeldzaam</span></td><td class="num">2031</td><td style="font-size:.82rem;white-space:normal;color:var(--ink-faint)">per teluur al 85% lager dan in 2007</td></tr>
         <tr><td class="name">Noordse stormvogel</td><td class="num">155 vogels</td><td class="num" style="color:var(--z);font-weight:650">&minus;22%</td><td style="font-size:.82rem">T0 = 20 vogels</td><td><span class="pill p-z">zeldzaam</span> &rarr; <span class="pill p-zz">zeer zeldzaam</span></td><td class="num">2034</td><td style="font-size:.82rem;white-space:normal;color:var(--ink-faint)">verschuift nu al naar zeldzaam; dit is de volgende stap daarna</td></tr>
@@ -602,6 +573,3 @@
 </div>
 
 </div>
-
-</body>
-</html>
