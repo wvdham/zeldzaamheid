@@ -221,25 +221,25 @@
   </div>
   <pre class="mermaid">
 flowchart TD
-  S([Soort]) --> E["Escapes eruit (M1)<br/>afgekeurd en in behandeling eruit"]
+  S([Soort]) --> E["Escapes eruit (M1) <br/>afgekeurd en in behandeling eruit"]
   E --> C{"Op de CDNA-lijst?"}
   C -- ja --> ZZ["zeer zeldzaam"]
-  C -- nee --> D["Bepaal per route<br/>een eigen klasse"]
+  C -- nee --> D["Bepaal per route <br/>een eigen klasse"]
 
-  D --> B["<b>Route 1 · broedvogel</b><br/>Sovon-broedparen<br/>mediaan 5 jaar<br/>grens B1 = 100"]
-  D --> T["<b>Route 2 · telpostsoort</b><br/>trektellen, mediaan 5 jaar<br/>zeevogels T1 = 170, T0 = 20<br/>roofvogels T1r = 2"]
-  D --> W["<b>Route 3 · overig</b><br/>jaarmax per hok 10 km<br/>mediaan 5 jaar<br/>grens N1 = 320, N0 = 20"]
+  D --> B["<b>Route 1 · broedvogel</b> <br/>Sovon-broedparen <br/>mediaan 5 jaar <br/>grens B1 = 100"]
+  D --> T["<b>Route 2 · telpostsoort</b> <br/>trektellen, mediaan 5 jaar <br/>zeevogels T1 = 170, T0 = 20 <br/>roofvogels T1r = 2"]
+  D --> W["<b>Route 3 · overig</b> <br/>jaarmax per hok 10 km <br/>mediaan 5 jaar <br/>grens N1 = 320, N0 = 20"]
 
-  B --> P{"Meer dan 75%<br/>in één provincie?"}
-  P -- ja --> P2["toets het aantal<br/>buiten die provincie"]
+  B --> P{"Meer dan 75% <br/>in één provincie?"}
+  P -- ja --> P2["toets het aantal <br/>buiten die provincie"]
   P -- nee --> M
   P2 --> M
 
   T --> M
   W --> M
-  M["<b>Neem de algemeenste<br/>van de uitkomsten (M5)</b>"] --> H{"Ligt de uitkomst<br/>aan de andere kant<br/>van de grens?"}
+  M["<b>Neem de algemeenste <br/>van de uitkomsten (M5)</b>"] --> H{"Ligt de uitkomst <br/>aan de andere kant <br/>van de grens?"}
   H -- nee --> G["klasse blijft"]
-  H -- ja --> H2{"Liggen de laatste<br/>twee jaar ook<br/>aan die kant? (M6)"}
+  H -- ja --> H2{"Liggen de laatste <br/>twee jaar ook <br/>aan die kant? (M6)"}
   H2 -- nee --> G
   H2 -- ja --> N["klasse verschuift"]
 </pre>
