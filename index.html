@@ -66,6 +66,25 @@
   .rb { display:flex; flex-direction:column; gap:0.35rem; }
   .rw { font-size:0.87rem; color:var(--ink-faint); }
   .grid2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(19rem,1fr)); gap:1rem; }
+  .grid4 { display:grid; grid-template-columns:1fr 1fr; gap:1rem; align-items:start; }
+  @media (max-width:46rem) { .grid4 { grid-template-columns:1fr; } }
+  .sh { background:var(--panel); border:1px solid var(--rule); border-left:3px solid var(--rule);
+        border-radius:3px; padding:1.15rem 1.35rem; display:flex; flex-direction:column; gap:0.85rem; }
+  .sh-up { border-left-color:var(--va); }
+  .sh-dn { border-left-color:var(--z); }
+  .sh-h { display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap;
+          padding-bottom:0.7rem; border-bottom:1px solid var(--rule); }
+  .sh-h .ar { color:var(--ink-faint); font-size:0.8rem; }
+  .sh-n { margin-left:auto; font-family:var(--font-data); font-size:0.74rem;
+          color:var(--ink-faint); letter-spacing:0.03em; }
+  .sh ul { padding-left:0; list-style:none; gap:0.55rem; }
+  .sh li { display:grid; grid-template-columns:3.6rem 1fr; gap:0.75rem; align-items:baseline;
+           font-size:0.9rem; color:var(--ink); }
+  .sh li .v { font-family:var(--font-data); font-size:0.8rem; color:var(--ink-faint);
+              font-variant-numeric:tabular-nums; text-align:right; }
+  .sh li .t { font-size:0.82rem; color:var(--ink-faint); font-weight:400; }
+  .sh li b { font-weight:600; }
+  .sh-f { font-size:0.82rem; color:var(--ink-faint); }
   ul { padding-left:1.1rem; display:flex; flex-direction:column; gap:0.4rem; }
   .mermaid { background:var(--panel); border:1px solid var(--rule); border-radius:3px;
              padding:1.25rem; overflow-x:auto; }
@@ -419,37 +438,28 @@ flowchart TD
     <h2>Wat er verandert</h2>
     <p>Twintig soorten van de ruim zeshonderd, met N1 = 320, N0 = 20, T1 = 170, T0 = 20 en B1 = 100, alles op hokken van 10 km. Zeven worden algemener en dertien zeldzamer.</p>
   </div>
-  <div class="grid2">
-    <div class="band">
-      <h3>Algemener</h3>
-      <ul>
-        <li><strong>Zwarte ooievaar</strong> &mdash; 548 op de waarnemingsroute; hij zit dun verspreid en stijgt daardoor het hardst van alle soorten bij een fijner raster</li>
-        <li><strong>Bijeneter</strong> &mdash; 474; als broedvogel 23 paren, maar M5 neemt de algemeenste uitkomst</li>
-        <li><strong>Draaihals</strong> &mdash; broedvogelroute, 180&ndash;230 paren</li>
-        <li><strong>Morinelplevier</strong> &mdash; 329; via de API kwam hij op 319 en bleef hij net onder N1, ingelogd komt hij eroverheen</li>
-      </ul>
-      <p style="font-size:.85rem;color:var(--ink-faint);margin:.7rem 0 .3rem"><strong>Van zeer zeldzaam naar zeldzaam</strong>, geen van drie&euml;n een CDNA-soort.</p>
-      <ul>
-        <li><strong>Struikrietzanger</strong> 25, <strong>vale gierzwaluw</strong> 22 en <strong>humes bladkoning</strong> 21</li>
-      </ul>
-      <p style="font-size:.85rem;color:var(--ink-faint);margin-top:.6rem">De <strong>oehoe</strong> zou er ook bij horen (130&ndash;150 paren, ruim boven B1), maar M6 houdt hem tegen tot twee opeenvolgende jaren dezelfde kant op wijzen.</p>
+  <div class="grid4">
+    <div class="sh sh-up">
+      <div class="sh-h"><span class="pill p-z">zeldzaam</span><span class="ar">&rarr;</span><span class="pill p-va">vrij algemeen</span><span class="sh-n">4 soorten</span></div>
+      <ul><li><span class="v">548</span><span><b>Zwarte ooievaar</b> <span class="t">dun verspreid, stijgt het hardst bij een fijner raster</span></span></li><li><span class="v">474</span><span><b>Bijeneter</b> <span class="t">als broedvogel 23 paren, maar M5 neemt de algemeenste uitkomst</span></span></li><li><span class="v">329</span><span><b>Morinelplevier</b> <span class="t">M6 houdt de verschuiving nog tegen</span></span></li><li><span class="v">180&ndash;230</span><span><b>Draaihals</b> <span class="t">broedparen, via de broedvogelroute</span></span></li></ul>
     </div>
-    <div class="band">
-      <h3>Zeldzamer</h3>
-      <ul>
-        <li><strong>Noordse stormvogel</strong> en <strong>middelste jager</strong> &mdash; telpost, mediaan 155 en 139</li>
-        <li><strong>Zwarte wouw</strong> en <strong>grauwe kiekendief</strong> &mdash; telpost, 2,9 en 1,0 per 1000 teluren</li>
-        <li><strong>IJsgors</strong> 232, <strong>klapekster</strong> 204, <strong>porseleinhoen</strong> 149 en <strong>roodhalsfuut</strong> 147 &mdash; alle vier onder N1</li>
-        <li><strong>Grote karekiet</strong> 154, maar M5 houdt hem vrij algemeen met 112 broedparen</li>
-        <li><strong>Velduil</strong> blijft nu juist vrij algemeen: op 25 km kwam hij op 230 en zou hij zakken, op 10 km staat hij op 473</li>
-      </ul>
-      <p style="font-size:.85rem;color:var(--ink-faint);margin:.7rem 0 .3rem"><strong>Van zeldzaam naar zeer zeldzaam.</strong></p>
-      <ul>
-        <li><strong>Roze spreeuw</strong> 18, <strong>roodstuitzwaluw</strong> 18, <strong>breedbekstrandloper</strong> 17, <strong>kleine vliegenvanger</strong> 14 en <strong>waterspreeuw</strong> 14, alle vijf onder N0</li>
-      </ul>
+    <div class="sh sh-up">
+      <div class="sh-h"><span class="pill p-zz">zeer zeldzaam</span><span class="ar">&rarr;</span><span class="pill p-z">zeldzaam</span><span class="sh-n">3 soorten</span></div>
+      <ul><li><span class="v">25</span><span><b>Struikrietzanger</b> <span class="t">M6 houdt de verschuiving nog tegen</span></span></li><li><span class="v">22</span><span><b>Vale gierzwaluw</b> <span class="t">M6 houdt de verschuiving nog tegen</span></span></li><li><span class="v">21</span><span><b>Humes bladkoning</b></span></li></ul>
+<p class="sh-f">Geen van drie&euml;n staat op de CDNA-lijst, dus M8 houdt ze niet tegen.</p>    </div>
+    <div class="sh sh-dn">
+      <div class="sh-h"><span class="pill p-va">vrij algemeen</span><span class="ar">&rarr;</span><span class="pill p-z">zeldzaam</span><span class="sh-n">8 soorten</span></div>
+      <ul><li><span class="v">232</span><span><b>IJsgors</b></span></li><li><span class="v">204</span><span><b>Klapekster</b></span></li><li><span class="v">149</span><span><b>Porseleinhoen</b></span></li><li><span class="v">147</span><span><b>Roodhalsfuut</b></span></li><li><span class="v">155</span><span><b>Noordse stormvogel</b> <span class="t">vogels, via de telpostroute</span></span></li><li><span class="v">139</span><span><b>Middelste jager</b> <span class="t">vogels, via de telpostroute</span></span></li><li><span class="v">2,9</span><span><b>Zwarte wouw</b> <span class="t">per 1000 teluren, via de telpostroute</span></span></li><li><span class="v">1,0</span><span><b>Grauwe kiekendief</b> <span class="t">per 1000 teluren, via de telpostroute</span></span></li></ul>
+    </div>
+    <div class="sh sh-dn">
+      <div class="sh-h"><span class="pill p-z">zeldzaam</span><span class="ar">&rarr;</span><span class="pill p-zz">zeer zeldzaam</span><span class="sh-n">5 soorten</span></div>
+      <ul><li><span class="v">18</span><span><b>Roze spreeuw</b> <span class="t">M6 houdt de verschuiving nog tegen</span></span></li><li><span class="v">18</span><span><b>Roodstuitzwaluw</b></span></li><li><span class="v">17</span><span><b>Breedbekstrandloper</b></span></li><li><span class="v">14</span><span><b>Kleine vliegenvanger</b> <span class="t">M6 houdt de verschuiving nog tegen</span></span></li><li><span class="v">14</span><span><b>Waterspreeuw</b></span></li></ul>
     </div>
   </div>
-
+  <div class="band">
+    <p><strong>Drie die er net niet bij horen.</strong> De <strong>grote karekiet</strong> komt met 154 onder N1 uit, maar M5 houdt hem vrij algemeen op zijn 112 broedparen. De <strong>velduil</strong> zou op hokken van 25 km gezakt zijn (230), maar staat op 10 km op 473 en blijft dus staan. De <strong>oehoe</strong> heeft met 130&ndash;150 paren ruim boven B1, maar M6 houdt hem tegen tot twee opeenvolgende jaren dezelfde kant op wijzen.</p>
+    <p>Bij vijf van de twintig staat hierboven dat M6 de verschuiving nog tegenhoudt. Die soorten schuiven pas als ook de laatste twee jaren aan dezelfde kant van de grens liggen; tot die tijd blijven ze staan waar ze staan.</p>
+  </div>
 </section>
 
 <section>
