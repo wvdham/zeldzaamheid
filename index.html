@@ -4,28 +4,15 @@
 <style>
   :root {
     --ground: #F6F7F3; --panel: #FFFFFF; --ink: #1A1F17; --ink-soft: #4C5348;
-    --ink-faint: #7C8377; --rule: #DCDFD5; --accent: #2F5D46; --accent-soft: #E4EDE7;
-    --zz: #A63A28; --z: #C08A1E; --va: #4A7186; --alg: #567A3C; --warn-bg: #FBF2E4;
+    --ink-faint: #6A7165; --rule: #DCDFD5; --accent: #2F5D46; --accent-soft: #E4EDE7;
+    --zz: #852E20; --z: #7E5A12; --va: #3B5A6B; --alg: #456230; --warn-bg: #FBF2E4;
     --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
     --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     --font-data: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
   }
-  @media (prefers-color-scheme: dark) {
-    :root { --ground:#14170F; --panel:#1C2019; --ink:#E8EBE2; --ink-soft:#AEB5A6;
-      --ink-faint:#7F8778; --rule:#2E3429; --accent:#7FB89A; --accent-soft:#232C26;
-      --zz:#E08472; --z:#E0B455; --va:#86B2C7; --alg:#97BD74; --warn-bg:#2A2317; }
-  }
-  :root[data-theme="dark"] { --ground:#14170F; --panel:#1C2019; --ink:#E8EBE2; --ink-soft:#AEB5A6;
-    --ink-faint:#7F8778; --rule:#2E3429; --accent:#7FB89A; --accent-soft:#232C26;
-    --zz:#E08472; --z:#E0B455; --va:#86B2C7; --alg:#97BD74; --warn-bg:#2A2317; }
-  :root[data-theme="light"] { --ground:#F6F7F3; --panel:#FFFFFF; --ink:#1A1F17; --ink-soft:#4C5348;
-    --ink-faint:#7C8377; --rule:#DCDFD5; --accent:#2F5D46; --accent-soft:#E4EDE7;
-    --zz:#A63A28; --z:#C08A1E; --va:#4A7186; --alg:#567A3C; --warn-bg:#FBF2E4; }
+  /* Eén vast, licht palet. Dark mode is bewust uitgeschakeld. */
+  :root { color-scheme: light; }
 
-  /* Alle verticale ruimte komt van de flex-gaps van de containers. Zonder deze
-     reset tellen de standaardmarges van p, h2, h3 en ul daar bovenop op, en dat
-     geeft lege regels tussen de alinea's. */
-  body, h1, h2, h3, h4, p, ul, ol, li, figure, blockquote, table, caption { margin:0; }
 
   body { background:var(--ground); color:var(--ink); font-family:var(--font-body);
          font-size:16.5px; line-height:1.62; }
@@ -441,7 +428,5 @@ flowchart TD
 
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-  const donker = matchMedia('(prefers-color-scheme: dark)').matches
-    || document.documentElement.dataset.theme === 'dark';
-  mermaid.initialize({ startOnLoad: true, theme: donker ? 'dark' : 'neutral' });
+      mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
 </script>
