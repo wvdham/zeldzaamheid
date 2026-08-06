@@ -30,3 +30,7 @@ jobs:
           path: .
       - id: deploy
         uses: actions/deploy-pages@v4
+        with:
+          # Deploys duren hier structureel 9 a 10 minuten; de standaardgrens
+          # van 10 minuten is te krap en liet run #1 omvallen.
+          timeout: 1200000
