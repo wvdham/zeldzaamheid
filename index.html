@@ -86,8 +86,10 @@
              padding:1.25rem; overflow-x:auto; }
   .foot { border-top:1px solid var(--rule); padding-top:1.5rem; font-size:0.85rem;
           color:var(--ink-faint); max-width:40rem; }
-  .beslisboom { margin:0; }
-  .beslisboom svg { width:100%; height:auto; display:block; }
+  /* Op smalle schermen schaalt de boom te ver terug om de tekst leesbaar te
+     houden; hij krijgt daarom dezelfde schuifstrook als de tabellen. */
+  .beslisboom { margin:0; overflow-x:auto; }
+  .beslisboom svg { width:100%; min-width:34rem; height:auto; display:block; }
   /* Alle verticale ruimte komt van de flex-gaps van de containers. Zonder deze
      reset tellen de standaardmarges van p, h2, h3 en ul daar bovenop op, en dat
      geeft lege regels tussen de alinea's. */
